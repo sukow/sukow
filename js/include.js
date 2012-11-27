@@ -126,6 +126,8 @@
 						initScript.type = "text/javascript";
 						initScript.innerHTML = 'window.impress().init()';
 						iframe.contentWindow.document.getElementsByTagName('body')[0].appendChild(initScript);
+						
+						iframe.contentWindow.focus();
 					}
 				);
 			}
