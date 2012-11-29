@@ -143,7 +143,7 @@
     var getElementFromHash = function () {
         // get id from url # by removing `#` or `#/` from the beginning,
         // so both "fallback" `#slide-id` and "enhanced" `#/slide-id` will work
-        return byId( window.location.hash.replace(/^#\/?/,"") );
+        return byId( parent.window.location.hash.replace(/^#\/?/,"") );
     };
     
     // `computeWindowScale` counts the scale factor between window size and size
@@ -609,7 +609,7 @@
             // makes transtion laggy.
             // BUG: http://code.google.com/p/chromium/issues/detail?id=62820
             root.addEventListener("impress:stepenter", function (event) {
-                window.location.hash = lastHash = "#/" + event.target.id;
+                parent.window.location.hash = lastHash = "#/" + event.target.id;
             }, false);
             
             window.addEventListener("hashchange", function () {
@@ -618,7 +618,7 @@
                 // triggered and we would call `goto` again on the same element.
                 //
                 // To avoid this we store last entered hash and compare.
-                if (window.location.hash !== lastHash) {
+                if (parent.window.location.hash !== lastHash) {
                     goto( getElementFromHash() );
                 }
             }, false);

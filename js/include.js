@@ -56,17 +56,28 @@
 		  
 			loadDatabase = function(callback) {
 				loadCss(
-					'css/impress-demo.css',
+					'css/chord.css',
 					function(){
-						loadScript(
-							'js/impress.js',
-							'iframe',
+						loadCss(
+							'css/impress-demo.css',
 							function(){
 								loadScript(
-									'js/database.jsonp',
-									'document',
-									function() {	  
-										  callback(database);
+									'js/impress.js',
+									'iframe',
+									function(){
+										loadScript(
+											'js/d3.v2.js',
+											'iframe',
+											function(){
+												loadScript(
+													'js/database.jsonp',
+													'document',
+													function() {	  
+														  callback(database);
+													}
+												);
+											}
+										);
 									}
 								);
 							}
@@ -128,6 +139,62 @@
 						iframe.contentWindow.document.getElementsByTagName('body')[0].appendChild(initScript);
 						
 						iframe.contentWindow.focus();
+						
+						loadScript(
+							'js/chord.js',
+							'iframe',
+							function() {	  
+								  console.log('hi');
+							}
+						);
+						
+						window.loaded_its = 0;
+						window.loaded_big = 0;
+						
+						iframe.contentWindow.document.addEventListener('impress:stepenter', function(e){
+							console.log(e.target.id);
+							if(e.target.id=='its' && !window.loaded_its){
+								loadCss(
+									'css/line.css',
+									function(){
+										loadScript(
+											'js/line.js',
+											'iframe',
+											function() {	  
+												  console.log('hi');
+												  window.loaded_its = 1;
+											}
+										);
+									}
+								);
+							}
+							else if(e.target.id=='big' && !window.loaded_big){
+								loadCss(
+									'css/button.css',
+									function(){
+										loadCss(
+											'css/stream.css',
+											function(){
+												loadScript(
+													'js/stream_layers.js',
+													'iframe',
+													function() {	  
+														  loadScript(
+															'js/stream.js',
+															'iframe',
+															function() {	  
+																  console.log('hi');
+																  window.loaded_big = 1;
+															}
+														);
+													}
+												);
+											}
+										);
+									}
+								);
+							}
+						});
 					}
 				);
 			}
