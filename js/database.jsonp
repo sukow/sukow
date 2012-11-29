@@ -16,7 +16,7 @@ var database =
 		},
 		{
 			"id":"",
-			"content":"<q>I wanted to change a few things which is why I spent some type refactoring...</q>",
+			"content":"<q>This example is different b/c it creates all the HTML dynamically...</q>",
 			"class":"step slide",
 			"data_x":"0",
 			"data_y":"-1500",
@@ -28,7 +28,7 @@ var database =
 		},
 		{
 			"id":"",
-			"content":"<q>Now this presentation can be included on any website with one line of code: <BR/><BR/>&lt;script src='js/include.js'&gt;&lt;/script&gt;<BR/>&lt;script&gt;_INCLUDE.init();&lt;/script&gt;</q>",
+			"content":"<q>Now this presentation can be included on any website with two lines of code: <BR/><BR/>&lt;script src='js/include.js'&gt;&lt;/script&gt;<BR/>&lt;script&gt;_INCLUDE.init();&lt;/script&gt;</q>",
 			"class":"step slide",
 			"data_x":"1000",
 			"data_y":"-1500",
@@ -64,7 +64,7 @@ var database =
 		},
 		{
 			"id":"big",
-			"content":"<div id='stream_chart'><h1>And support fancy data streams</h1></div>",
+			"content":"<div id='stream_chart'><h1>and supports fancy data streams</h1></div>",
 			"class":"step",
 			"data_x":"3500",
 			"data_y":"2100",
@@ -76,7 +76,7 @@ var database =
 		},
 		{
 			"id":"tiny",
-			"content":"<p>where one can <b>zoom</b> into their data in theory</p>",
+			"content":"<p>where one can <b>zoom</b> into their data in</p>",
 			"class":"step",
 			"data_x":"2825",
 			"data_y":"2325",
